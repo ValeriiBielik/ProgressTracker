@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">ProgressTracker</string>
+
+    <!--OnBoardingActivity-->
+    <string name="label_enter_your_name">Enter your name</string>
+    <string name="hint_your_name">Your name</string>
+    <string name="label_accept">Accept</string>
+    <string name="home">Home</string>
+    <string name="progress">Progress</string>
+    <string name="alerts">Alerts</string>
+    <string name="profile">Profile</string>
+    <!--/OnBoardingActivity-->
+    <!-- Fragments -->
+    <string name="first_fragment">First fragment</string>
+    <string name="third_fragment">Third fragment</string>
+    <string name="second_fragment">Second fragment</string>
+    <string name="fourth_fragment">Fourth fragment</string>
+    <!-- /Fragments -->
 </resources>
