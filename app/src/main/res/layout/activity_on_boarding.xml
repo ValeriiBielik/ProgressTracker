@@ -39,7 +39,7 @@
         android:id="@+id/accessBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/PrimaryButton"
+        style="@style/Button.Primary"
         android:text="@string/label_accept"
         android:textSize="12sp"
         android:enabled="true"
