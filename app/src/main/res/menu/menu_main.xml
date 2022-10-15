@@ -2,24 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/miHome"
+        android:id="@+id/navigationHome"
         android:icon="@drawable/ic_splash_icon"
         android:title="@string/home" />
 
     <item
-        android:id="@+id/miProgress"
+        android:id="@+id/navigationProgress"
         android:icon="@drawable/ic_splash_icon"
         android:title="@string/progress" />
 
     <item
-        android:id="@+id/miAlerts"
+        android:id="@+id/navigationAlerts"
         android:icon="@drawable/ic_splash_icon"
         android:title="@string/alerts" />
 
     <item
-        android:id="@+id/miProfile"
+        android:id="@+id/navigationProfile"
         android:icon="@drawable/ic_splash_icon"
         android:title="@string/profile" />
-
-
 </menu>

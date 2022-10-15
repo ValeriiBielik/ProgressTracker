@@ -1,4 +1,4 @@
-package com.bielik.progresstracker.fragments
+package com.bielik.progresstracker.feature.fragments
 
 import androidx.fragment.app.Fragment
 import com.bielik.progresstracker.R
