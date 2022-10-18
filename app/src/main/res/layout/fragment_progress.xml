@@ -7,9 +7,9 @@
     tools:context=".feature.main.MainActivity">
 
     <TextView
-        android:id="@+id/firstFragment"
+        android:id="@+id/secondFragment"
         android:layout_width="match_parent"
-        android:text="@string/first_fragment"
+        android:text="@string/fragment_progress"
         android:textSize="22sp"
         android:gravity="center"
         android:layout_height="match_parent"/>

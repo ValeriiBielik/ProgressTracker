@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigationHome"
-        android:name="com.bielik.progresstracker.feature.fragments.FirstFragment"
-        android:label="FragmentHome"
-        tools:layout="@layout/fragment_first" />
+        android:name="com.bielik.progresstracker.feature.home.HomeFragment"
+        android:label="@string/fragment_home"
+        tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigationProgress"
-        android:name="com.bielik.progresstracker.feature.fragments.SecondFragment"
-        android:label="FragmenProgress"
-        tools:layout="@layout/fragment_second" />
+        android:name="com.bielik.progresstracker.feature.progress.ProgressFragment"
+        android:label="@string/fragment_progress"
+        tools:layout="@layout/fragment_progress" />
 
     <fragment
         android:id="@+id/navigationAlerts"
-        android:name="com.bielik.progresstracker.feature.fragments.ThirdFragment"
-        android:label="FragmentAlerts"
-        tools:layout="@layout/fragment_third" />
+        android:name="com.bielik.progresstracker.feature.alerts.AlertsFragment"
+        android:label="@string/fragment_alerts"
+        tools:layout="@layout/fragment_alerts" />
 
     <fragment
         android:id="@+id/navigationProfile"
-        android:name="com.bielik.progresstracker.feature.fragments.FourthFragment"
-        android:label="FragmentProfile"
-        tools:layout="@layout/fragment_fourth" />
+        android:name="com.bielik.progresstracker.feature.profile.ProfileFragment"
+        android:label="@string/fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

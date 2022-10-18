@@ -5,23 +5,21 @@
     <string name="label_enter_your_name">Enter your name</string>
     <string name="hint_your_name">Your name</string>
     <string name="label_accept">Accept</string>
+    <!--/OnBoardingActivity-->
+
+    <!--MainMenu-->
     <string name="home">Home</string>
     <string name="progress">Progress</string>
     <string name="alerts">Alerts</string>
     <string name="profile">Profile</string>
-    <!--/OnBoardingActivity-->
+    <!--/MainMenu-->
+
     <!-- Fragments -->
     <string name="fragment_on_boarding">FragmentOnBoarding</string>
     <string name="fragment_main_container">FragmentMainContainer</string>
-
-
-
-    <!-- TODO: Remove all -->
-    <string name="first_fragment">First fragment</string>
-    <string name="third_fragment">Third fragment</string>
-    <string name="second_fragment">Second fragment</string>
-    <string name="fourth_fragment">Fourth fragment</string>
-
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_home">FragmentHome</string>
+    <string name="fragment_progress">FragmentProgress</string>
+    <string name="fragment_alerts">FragmentAlerts</string>
+    <string name="fragment_profile">FragmentProfile</string>
     <!-- /Fragments -->
 </resources>

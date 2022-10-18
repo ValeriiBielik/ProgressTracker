@@ -9,7 +9,7 @@
     <TextView
         android:id="@+id/firstFragment"
         android:layout_width="match_parent"
-        android:text="@string/third_fragment"
+        android:text="@string/fragment_profile"
         android:textSize="22sp"
         android:gravity="center"
         android:layout_height="match_parent"/>
