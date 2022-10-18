@@ -10,28 +10,4 @@
         android:name="com.bielik.progresstracker.feature.main.MainContainerFragment"
         android:label="@string/fragment_main_container"
         tools:layout="@layout/fragment_main_container" />
-
-    <fragment
-        android:id="@+id/navigationHome"
-        android:name="com.bielik.progresstracker.feature.fragments.FirstFragment"
-        android:label="FragmentHome"
-        tools:layout="@layout/fragment_first" />
-
-    <fragment
-        android:id="@+id/navigationProgress"
-        android:name="com.bielik.progresstracker.feature.fragments.SecondFragment"
-        android:label="FragmenProgress"
-        tools:layout="@layout/fragment_second" />
-
-    <fragment
-        android:id="@+id/navigationAlerts"
-        android:name="com.bielik.progresstracker.feature.fragments.ThirdFragment"
-        android:label="FragmentAlerts"
-        tools:layout="@layout/fragment_third" />
-
-    <fragment
-        android:id="@+id/navigationProfile"
-        android:name="com.bielik.progresstracker.feature.fragments.FourthFragment"
-        android:label="FragmentProfile"
-        tools:layout="@layout/fragment_fourth" />
 </navigation>
