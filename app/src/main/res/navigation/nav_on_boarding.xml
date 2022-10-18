@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_on_boarding"
+    app:startDestination="@id/navOnBoarding">
+
+    <fragment
+        android:id="@+id/navOnBoarding"
+        android:name="com.bielik.progresstracker.feature.on_boarding.OnBoardingFragment"
+        android:label="@string/fragment_on_boarding"
+        tools:layout="@layout/fragment_on_boarding">
+        <action
+            android:id="@+id/navigateToMainContainerFragment"
+            app:destination="@+id/navMainContainer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navMainContainer"
+        android:name="com.bielik.progresstracker.feature.main.MainContainerFragment"
+        android:label="@string/fragment_main_container"
+        tools:layout="@layout/fragment_main_container" />
+</navigation>

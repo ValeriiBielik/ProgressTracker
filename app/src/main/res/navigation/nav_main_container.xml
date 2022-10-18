@@ -2,8 +2,14 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_main"
-    app:startDestination="@id/navigationHome">
+    android:id="@+id/nav_main_container"
+    app:startDestination="@id/navMainContainer">
+
+    <fragment
+        android:id="@+id/navMainContainer"
+        android:name="com.bielik.progresstracker.feature.main.MainContainerFragment"
+        android:label="@string/fragment_main_container"
+        tools:layout="@layout/fragment_main_container" />
 
     <fragment
         android:id="@+id/navigationHome"

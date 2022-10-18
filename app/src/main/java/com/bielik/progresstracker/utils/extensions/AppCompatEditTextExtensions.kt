@@ -8,7 +8,6 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 
-@Suppress("EXPERIMENTAL_API_USAGE")
 fun AppCompatEditText.textChanges(): Flow<CharSequence?> {
     return callbackFlow {
         val listener = object : TextWatcher {
