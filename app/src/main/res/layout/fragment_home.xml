@@ -1,17 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="4dp"
     tools:context=".feature.main.MainActivity">
 
-    <TextView
-        android:id="@+id/firstFragment"
+    <LinearLayout
+        android:id="@+id/lrAppBar"
         android:layout_width="match_parent"
-        android:text="@string/fragment_home"
-        android:textSize="22sp"
-        android:gravity="center"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvGreetingUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            tools:text="Hello, Maxim Bielik" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
