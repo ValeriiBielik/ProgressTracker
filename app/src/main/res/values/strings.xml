@@ -22,4 +22,8 @@
     <string name="fragment_alerts">FragmentAlerts</string>
     <string name="fragment_profile">FragmentProfile</string>
     <!-- /Fragments -->
+
+    <!-- HomeFragment -->
+    <string name="format_user_greeting">Hi, %s</string>
+    <!-- /HomeFragment -->
 </resources>
