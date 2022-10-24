@@ -7,6 +7,25 @@
     android:padding="4dp"
     tools:context=".feature.main.MainActivity">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivUserIcon"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_100"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@drawable/ic_user" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivEditIcon"
+        android:layout_width="@dimen/dimen_24"
+        android:layout_height="@dimen/dimen_24"
+        app:layout_constraintBottom_toBottomOf="@id/ivUserIcon"
+        app:layout_constraintEnd_toEndOf="@id/ivUserIcon"
+        app:srcCompat="@drawable/ic_edit" />
+
     <TextView
         android:id="@+id/tvUserName"
         android:layout_width="match_parent"
@@ -16,18 +35,7 @@
         android:textColor="@color/black"
         android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/userIcon"
+        app:layout_constraintTop_toBottomOf="@id/ivUserIcon"
         tools:text="Maxim Bielik" />
-
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/userIcon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_user_placeholder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

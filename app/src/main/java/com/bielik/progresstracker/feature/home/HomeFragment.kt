@@ -17,7 +17,7 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding, HomeViewModel>() {
 
     private fun subscribe(){
         viewModel.setupFlow.observeWhenResumed {
-            binding?.tvGreetingUser?.text = getString(R.string.format_user_greeting, it)
+            binding?.tvGreetingUser?.text = getString(R.string.format_user_greeting, it?.userName)
         }
     }
 
