@@ -1,11 +1,7 @@
 package com.bielik.progresstracker.repository
 
-import com.bielik.progresstracker.model.UserDetails
-
 interface PreferencesRepository {
-    var userDetails: UserDetails?
+    var userName: String?
 
-    fun saveUserName(userName: String)
-    fun saveUserImage(image: String)
     fun isUserLoggedIn(): Boolean
 }

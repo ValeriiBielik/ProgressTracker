@@ -15,7 +15,7 @@ class OnBoardingViewModel @Inject constructor(
     val successFlow: SharedFlow<Unit> = MutableSharedFlow()
 
     fun saveUserName(userName: String) {
-        preferencesRepository.saveUserName(userName)
+        preferencesRepository.userName = userName
         successFlow.emitViewModelScope(Unit)
     }
 }

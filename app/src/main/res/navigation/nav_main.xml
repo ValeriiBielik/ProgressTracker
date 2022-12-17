@@ -9,7 +9,11 @@
         android:id="@+id/navigationHome"
         android:name="com.bielik.progresstracker.feature.home.HomeFragment"
         android:label="@string/fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/navigateToAddTicketFragment"
+            app:destination="@+id/navigationAddTicket" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigationProgress"
@@ -28,4 +32,10 @@
         android:name="com.bielik.progresstracker.feature.profile.ProfileFragment"
         android:label="@string/fragment_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigationAddTicket"
+        android:name="com.bielik.progresstracker.feature.add_ticket.AddTicketFragment"
+        android:label="@string/fragment_add_ticket"
+        tools:layout="@layout/fragment_add_ticket" />
 </navigation>
