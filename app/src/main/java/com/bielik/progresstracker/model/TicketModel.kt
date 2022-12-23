@@ -10,8 +10,7 @@ data class TicketModel(
     var description: String?,
     var isDone: Boolean,
     var ticketTypeIndex: Int,
-    var hashNumber: Int?, // number supposed to be used when we need to get all repeatable tasks.
-    var timestamp: Long,
-    ) {
+    var timestamp: Long? = null
+) {
     val ticketType get() = parseTicketType(ticketTypeIndex)
 }

@@ -10,7 +10,7 @@ interface TicketsDao {
     suspend fun getTicketById(id: Long): TicketModel
 
     @Query("SELECT * FROM tickets")
-    suspend fun getPasswords(): List<TicketModel>
+    suspend fun getTickets(): List<TicketModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTicket(ticketModel: TicketModel)

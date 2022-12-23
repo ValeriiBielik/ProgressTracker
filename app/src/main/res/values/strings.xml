@@ -27,4 +27,27 @@
     <!-- HomeFragment -->
     <string name="format_user_greeting">Hi, %s</string>
     <!-- /HomeFragment -->
+
+    <!-- FragmentAddTicket -->
+    <string name="label_create_ticket">Create New Ticket</string>
+    <string name="hint_title">Title</string>
+    <string name="hint_description">Description</string>
+    <string name="hint_select_type">Select type</string>
+    <string name="label_monday">Monday</string>
+    <string name="label_tuesday">Tuesday</string>
+    <string name="label_wednesday">Wednesday</string>
+    <string name="label_thursday">Thursday</string>
+    <string name="label_friday">Friday</string>
+    <string name="label_saturday">Saturday</string>
+    <string name="label_sunday">Sunday</string>
+    <string name="label_repeat_on">Repeat on:</string>
+
+    <string name="error_title_is_empty">Please, enter title</string>
+
+    <string-array name="array_ticket_types">
+        <item>Task</item>
+        <item>Repeatable Task</item>
+        <item>Progress Tracked Task</item>
+    </string-array>
+    <!-- /FragmentAddTicket -->
 </resources>

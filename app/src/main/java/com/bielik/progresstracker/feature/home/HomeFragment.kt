@@ -16,10 +16,16 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding, HomeViewModel>() {
     override val viewModel by viewModels<HomeViewModel>()
 
     private val adapter: TicketsAdapter by lazy { TicketsAdapter() }
+
     override fun initUI() {
         setupRecyclerView()
         implementListeners()
         subscribe()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.fetchTickets()
     }
 
     private fun setupRecyclerView() = withBinding {
@@ -28,6 +34,7 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding, HomeViewModel>() {
 
     private fun implementListeners() = withBinding {
         btnAdd.onClick { findNavController().navigate(HomeFragmentDirections.navigateToAddTicketFragment()) }
+        swipeRefreshLayout.setOnRefreshListener { refreshData() }
     }
 
     private fun subscribe() {
@@ -37,8 +44,13 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding, HomeViewModel>() {
 
     private fun setupUserName(userName: String) = withBinding {
         if (userName.isNotEmpty()) {
-            headerView.setupView(getString(R.string.format_user_greeting, userName), false)
+            headerView.setupView(getString(R.string.format_user_greeting, userName))
         }
+    }
+
+    private fun refreshData() = withBinding {
+        viewModel.fetchTickets()
+        swipeRefreshLayout.isRefreshing = false
     }
 
     override fun attachBinding(inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) =
