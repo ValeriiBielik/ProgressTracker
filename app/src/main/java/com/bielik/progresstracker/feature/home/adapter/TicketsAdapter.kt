@@ -6,9 +6,14 @@ import com.bielik.progresstracker.base.BaseAdapter
 import com.bielik.progresstracker.databinding.ItemTicketBinding
 import com.bielik.progresstracker.model.TicketModel
 
-class TicketsAdapter : BaseAdapter<TicketModel, TicketViewHolder>() {
+class TicketsAdapter(
+    private val onItemClick: (id: Long) -> Unit
+) : BaseAdapter<TicketModel, TicketViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TicketViewHolder {
-        return TicketViewHolder(ItemTicketBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return TicketViewHolder(
+            ItemTicketBinding.inflate(LayoutInflater.from(parent.context), parent, false),
+            onItemClick
+        )
     }
 }

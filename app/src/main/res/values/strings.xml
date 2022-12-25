@@ -22,6 +22,7 @@
     <string name="fragment_alerts">FragmentAlerts</string>
     <string name="fragment_profile">FragmentProfile</string>
     <string name="fragment_add_ticket">FragmentAddTicket</string>
+    <string name="fragment_ticket_details">FragmentTicketDetails</string>
     <!-- /Fragments -->
 
     <!-- HomeFragment -->

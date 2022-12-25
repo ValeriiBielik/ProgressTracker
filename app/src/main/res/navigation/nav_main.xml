@@ -13,6 +13,9 @@
         <action
             android:id="@+id/navigateToAddTicketFragment"
             app:destination="@+id/navigationAddTicket" />
+        <action
+            android:id="@+id/navigateToTicketDetailsFragment"
+            app:destination="@+id/navigationTicketDetails" />
     </fragment>
 
     <fragment
@@ -38,4 +41,10 @@
         android:name="com.bielik.progresstracker.feature.add_ticket.AddTicketFragment"
         android:label="@string/fragment_add_ticket"
         tools:layout="@layout/fragment_add_ticket" />
+
+    <fragment
+        android:id="@+id/navigationTicketDetails"
+        android:name="com.bielik.progresstracker.feature.ticket_details.TicketDetailsFragment"
+        android:label="@string/fragment_ticket_details"
+        tools:layout="@layout/fragment_ticket_details" />
 </navigation>

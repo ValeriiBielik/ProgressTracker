@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : BaseBindingFragment<FragmentHomeBinding, HomeViewModel>() {
     override val viewModel by viewModels<HomeViewModel>()
 
-    private val adapter: TicketsAdapter by lazy { TicketsAdapter() }
+    private val adapter: TicketsAdapter by lazy { TicketsAdapter(onItemClick = { onTicketClick(it) }) }
 
     override fun initUI() {
         setupRecyclerView()
@@ -51,6 +51,10 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding, HomeViewModel>() {
     private fun refreshData() = withBinding {
         viewModel.fetchTickets()
         swipeRefreshLayout.isRefreshing = false
+    }
+
+    private fun onTicketClick(id: Long) {
+//        findNavController().navigate(HomeFragmentDirections.navigateToTicketDetailsFragment())
     }
 
     override fun attachBinding(inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) =

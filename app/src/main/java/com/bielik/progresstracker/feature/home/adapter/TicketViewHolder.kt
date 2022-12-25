@@ -8,7 +8,10 @@ import com.bielik.progresstracker.databinding.ItemTicketBinding
 import com.bielik.progresstracker.model.TicketModel
 import com.bielik.progresstracker.model.TicketType
 
-class TicketViewHolder(binding: ItemTicketBinding) : BaseBindingViewHolder<TicketModel, ItemTicketBinding>(binding) {
+class TicketViewHolder(
+    binding: ItemTicketBinding,
+    private val onItemClick: (id: Long) -> Unit
+) : BaseBindingViewHolder<TicketModel, ItemTicketBinding>(binding) {
 
     private val colorGreen by lazy { ContextCompat.getColor(context, R.color.green_200) }
     private val colorRed by lazy { ContextCompat.getColor(context, R.color.red_200) }
@@ -27,5 +30,7 @@ class TicketViewHolder(binding: ItemTicketBinding) : BaseBindingViewHolder<Ticke
         }
 
         flIconContainer.backgroundTintList = ColorStateList.valueOf(if (item.isDone) colorGreen else colorRed)
+
+        item.id?.let(onItemClick)
     }
 }

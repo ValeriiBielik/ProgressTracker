@@ -24,7 +24,6 @@
             tools:src="@drawable/ic_task" />
     </FrameLayout>
 
-
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
@@ -34,6 +33,5 @@
         app:layout_constraintStart_toEndOf="@id/flIconContainer"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Some Title" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
