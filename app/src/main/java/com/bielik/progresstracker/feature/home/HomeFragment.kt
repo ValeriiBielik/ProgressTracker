@@ -54,7 +54,7 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding, HomeViewModel>() {
     }
 
     private fun onTicketClick(id: Long) {
-//        findNavController().navigate(HomeFragmentDirections.navigateToTicketDetailsFragment())
+        findNavController().navigate(HomeFragmentDirections.navigateToTicketDetailsFragment(id))
     }
 
     override fun attachBinding(inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) =

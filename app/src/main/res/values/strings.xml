@@ -51,4 +51,9 @@
         <item>Progress Tracked Task</item>
     </string-array>
     <!-- /FragmentAddTicket -->
+
+    <!-- FragmentTicketDetails -->
+    <string name="label_description">Description</string>
+    <string name="label_mark_as_done">Mark as Done</string>
+    <!-- /FragmentTicketDetails -->
 </resources>

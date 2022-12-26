@@ -46,5 +46,10 @@
         android:id="@+id/navigationTicketDetails"
         android:name="com.bielik.progresstracker.feature.ticket_details.TicketDetailsFragment"
         android:label="@string/fragment_ticket_details"
-        tools:layout="@layout/fragment_ticket_details" />
+        tools:layout="@layout/fragment_ticket_details">
+        <argument
+            android:name="ticketId"
+            android:defaultValue="0L"
+            app:argType="long" />
+    </fragment>
 </navigation>

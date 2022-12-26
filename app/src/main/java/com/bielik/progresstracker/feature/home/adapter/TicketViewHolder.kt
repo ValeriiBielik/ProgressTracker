@@ -7,6 +7,7 @@ import com.bielik.progresstracker.base.BaseBindingViewHolder
 import com.bielik.progresstracker.databinding.ItemTicketBinding
 import com.bielik.progresstracker.model.TicketModel
 import com.bielik.progresstracker.model.TicketType
+import com.bielik.progresstracker.utils.extensions.onClick
 
 class TicketViewHolder(
     binding: ItemTicketBinding,
@@ -30,7 +31,6 @@ class TicketViewHolder(
         }
 
         flIconContainer.backgroundTintList = ColorStateList.valueOf(if (item.isDone) colorGreen else colorRed)
-
-        item.id?.let(onItemClick)
+        root.onClick { onItemClick.invoke(item.id ?: 0) }
     }
 }

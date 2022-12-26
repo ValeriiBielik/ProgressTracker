@@ -15,6 +15,9 @@ interface TicketsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTicket(ticketModel: TicketModel)
 
+    @Update
+    suspend fun updateTicket(ticketModel: TicketModel)
+
     @Delete
     suspend fun deleteTicket(ticketModel: TicketModel): Int
 }
