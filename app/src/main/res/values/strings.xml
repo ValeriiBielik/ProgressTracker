@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">ProgressTracker</string>
+    <string name="empty" />
 
     <!--OnBoardingActivity-->
     <string name="label_enter_your_name">Enter your name</string>
@@ -23,6 +24,7 @@
     <string name="fragment_profile">FragmentProfile</string>
     <string name="fragment_add_ticket">FragmentAddTicket</string>
     <string name="fragment_ticket_details">FragmentTicketDetails</string>
+    <string name="dialog_select_repeat_option">DialogSelectRepeatOption</string>
     <!-- /Fragments -->
 
     <!-- HomeFragment -->
@@ -44,6 +46,7 @@
     <string name="label_repeat_on">Repeat on:</string>
 
     <string name="error_title_is_empty">Please, enter title</string>
+    <string name="label_repeat">Repeat</string>
 
     <string-array name="array_ticket_types">
         <item>Task</item>
@@ -56,4 +59,11 @@
     <string name="label_description">Description</string>
     <string name="label_mark_as_done">Mark as Done</string>
     <!-- /FragmentTicketDetails -->
+
+    <!-- DialogSelectRepeatOptions-->
+    <string name="repeat_option_once">Once</string>
+    <string name="repeat_option_everyday">Everyday</string>
+    <string name="repeat_option_on_work_days">On work days</string>
+    <string name="repeat_option_select_days">Select days</string>
+    <!-- /DialogSelectRepeatOptions-->
 </resources>

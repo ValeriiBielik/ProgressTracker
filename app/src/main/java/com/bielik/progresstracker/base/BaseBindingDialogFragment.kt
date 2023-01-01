@@ -4,7 +4,11 @@ import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.Window
+import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import androidx.viewbinding.ViewBinding
 import com.bielik.progresstracker.common.dialog.AlertDialog
@@ -22,9 +26,7 @@ abstract class BaseBindingDialogFragment<VB : ViewBinding> : DialogFragment() {
         return getInflatedView(inflater, container)
     }
 
-    abstract fun bindToBinding(
-        view: View
-    ): VB
+    abstract fun bindToBinding(view: View): VB
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -86,8 +88,7 @@ abstract class BaseBindingDialogFragment<VB : ViewBinding> : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?
     ): View {
-        val view =
-            View.inflate(inflater.context, getContentViewId(), container?.parent as ViewGroup?)
+        val view = View.inflate(inflater.context, getContentViewId(), container?.parent as ViewGroup?)
         binding = bindToBinding(view)
         return binding?.root
             ?: error("Provide binding")

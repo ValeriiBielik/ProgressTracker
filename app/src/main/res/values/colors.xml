@@ -35,6 +35,8 @@
     <color name="blue_grey_200">#b0bec5</color>
     <!--/colors material value 200-->
 
+    <color name="light_blue_200_50">#8081D4FA</color>
+
     <color name="grey_100">#F5F5F5</color>
 
     <color name="primaryColor">#00bcd4</color>

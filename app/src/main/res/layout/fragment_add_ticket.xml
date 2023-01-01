@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -76,66 +77,53 @@
                     android:inputType="none" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <LinearLayout
-                android:id="@+id/llRepeatOn"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clRepeat"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/dimen_16"
-                android:layout_marginTop="@dimen/dimen_16"
-                android:orientation="vertical"
+                android:layout_height="@dimen/dimen_60"
+                android:layout_marginTop="@dimen/dimen_10"
+                android:background="?attr/selectableItemBackground"
                 android:visibility="gone"
-                app:layout_constraintTop_toBottomOf="@id/tilTicketType">
+                app:layout_constraintTop_toBottomOf="@id/tilTicketType"
+                tools:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="match_parent"
+                    android:id="@+id/tvRepeatLabel"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_repeat_on"
+                    android:layout_marginHorizontal="@dimen/dimen_24"
+                    android:text="@string/label_repeat"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/text_16" />
+                    android:textSize="@dimen/text_16"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbMonday"
-                    android:layout_width="match_parent"
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvRepeatOption"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="@string/label_monday" />
+                    android:layout_marginStart="@dimen/dimen_100"
+                    android:layout_marginEnd="@dimen/dimen_10"
+                    android:text="@string/repeat_option_once"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/ivArrow"
+                    app:layout_constraintStart_toEndOf="@id/tvRepeatLabel"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbTuesday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_tuesday" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivArrow"
+                    android:layout_width="@dimen/dimen_16"
+                    android:layout_height="@dimen/dimen_16"
+                    android:layout_marginEnd="@dimen/dimen_24"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_arrow" />
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbWednesday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_wednesday" />
-
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbThursday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_thursday" />
-
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbFriday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_friday" />
-
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbSaturday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_saturday" />
-
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/cbSunday"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/label_sunday" />
-
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

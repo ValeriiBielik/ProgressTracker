@@ -5,6 +5,7 @@ import com.bielik.progresstracker.R
 import com.bielik.progresstracker.base.BaseViewModel
 import com.bielik.progresstracker.common.StringResource
 import com.bielik.progresstracker.database.dao.TicketsDao
+import com.bielik.progresstracker.model.RepeatOption
 import com.bielik.progresstracker.model.TicketModel
 import com.bielik.progresstracker.model.TicketType
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,10 +21,11 @@ class AddTicketViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     private var selectedTicketType: TicketType? = null
+    private var repeatOption: RepeatOption = RepeatOption.ONCE
 
     val errorFlow: SharedFlow<StringResource> = MutableSharedFlow()
     val successFlow: SharedFlow<Unit> = MutableSharedFlow()
-
+    val onRepeatOptionClickEvent: SharedFlow<RepeatOption> = MutableSharedFlow()
 
     fun onTicketTypeSelected(type: TicketType) {
         selectedTicketType = type
@@ -58,5 +60,13 @@ class AddTicketViewModel @Inject constructor(
         } ?: run {
             return true
         }
+    }
+
+    fun onRepeatOptionSelected(option: RepeatOption) {
+        repeatOption = option
+    }
+
+    fun onRepeatOptionClick() {
+        onRepeatOptionClickEvent.emitViewModelScope(repeatOption)
     }
 }

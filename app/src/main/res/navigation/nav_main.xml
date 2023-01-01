@@ -40,7 +40,11 @@
         android:id="@+id/navigationAddTicket"
         android:name="com.bielik.progresstracker.feature.add_ticket.AddTicketFragment"
         android:label="@string/fragment_add_ticket"
-        tools:layout="@layout/fragment_add_ticket" />
+        tools:layout="@layout/fragment_add_ticket">
+        <action
+            android:id="@+id/openSelectDayOptionDialog"
+            app:destination="@id/navigationSelectRepeatOptionDialog" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigationTicketDetails"
@@ -52,4 +56,14 @@
             android:defaultValue="0L"
             app:argType="long" />
     </fragment>
+
+    <dialog
+        android:id="@+id/navigationSelectRepeatOptionDialog"
+        android:name="com.bielik.progresstracker.feature.select_repeat_option.SelectRepeatOptionDialog"
+        android:label="@string/dialog_select_repeat_option"
+        tools:layout="@layout/dialog_select_repeat_option">
+        <argument
+            android:name="repeatOption"
+            app:argType=".model.RepeatOption" />
+    </dialog>
 </navigation>
