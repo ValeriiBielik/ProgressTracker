@@ -12,12 +12,14 @@ import com.bielik.progresstracker.feature.select_repeat_option.model.RepeatOptio
 import com.bielik.progresstracker.model.RepeatOption
 import com.bielik.progresstracker.utils.extensions.onClick
 import com.bielik.progresstracker.utils.extensions.setNavigationResult
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-class SelectRepeatOptionDialog : BaseBottomSheetDialogFragment<DialogSelectRepeatOptionBinding, SelectDaysViewModel>() {
+@AndroidEntryPoint
+class SelectRepeatOptionDialog : BaseBottomSheetDialogFragment<DialogSelectRepeatOptionBinding, SelectRepeatOptionViewModel>() {
 
-    override val viewModel by viewModels<SelectDaysViewModel>()
+    override val viewModel by viewModels<SelectRepeatOptionViewModel>()
     private val safeArgs: SelectRepeatOptionDialogArgs by navArgs()
 
     override fun setupUI() = withBinding {

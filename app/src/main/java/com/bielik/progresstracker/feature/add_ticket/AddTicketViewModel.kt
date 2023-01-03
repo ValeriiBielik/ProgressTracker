@@ -5,9 +5,12 @@ import com.bielik.progresstracker.R
 import com.bielik.progresstracker.base.BaseViewModel
 import com.bielik.progresstracker.common.StringResource
 import com.bielik.progresstracker.database.dao.TicketsDao
+import com.bielik.progresstracker.model.Day
 import com.bielik.progresstracker.model.RepeatOption
 import com.bielik.progresstracker.model.TicketModel
 import com.bielik.progresstracker.model.TicketType
+import com.bielik.progresstracker.model.getAllDays
+import com.bielik.progresstracker.model.getWorkDays
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
@@ -20,12 +23,13 @@ class AddTicketViewModel @Inject constructor(
     private val ticketsDao: TicketsDao
 ) : BaseViewModel() {
 
-    private var selectedTicketType: TicketType? = null
-    private var repeatOption: RepeatOption = RepeatOption.ONCE
-
     val errorFlow: SharedFlow<StringResource> = MutableSharedFlow()
     val successFlow: SharedFlow<Unit> = MutableSharedFlow()
     val onRepeatOptionClickEvent: SharedFlow<RepeatOption> = MutableSharedFlow()
+
+    private var selectedTicketType: TicketType? = null
+    private var repeatOption: RepeatOption = RepeatOption.ONCE
+    private val selectedDays: MutableList<Day> = mutableListOf()
 
     fun onTicketTypeSelected(type: TicketType) {
         selectedTicketType = type
@@ -64,9 +68,35 @@ class AddTicketViewModel @Inject constructor(
 
     fun onRepeatOptionSelected(option: RepeatOption) {
         repeatOption = option
+        when (option) {
+            RepeatOption.ONCE -> {}
+            RepeatOption.EVERYDAY -> {
+                selectedDays.apply {
+                    clear()
+                    addAll(getAllDays())
+                }
+            }
+            RepeatOption.ON_WORK_DAYS -> {
+                selectedDays.apply {
+                    clear()
+                    addAll(getWorkDays())
+                }
+            }
+            else -> throw IllegalStateException()
+        }
     }
 
     fun onRepeatOptionClick() {
         onRepeatOptionClickEvent.emitViewModelScope(repeatOption)
     }
+
+    fun onDaysSelected(days: List<Day>) {
+        repeatOption = RepeatOption.SELECT_DAYS
+        selectedDays.apply {
+            clear()
+            addAll(days)
+        }
+    }
+
+    fun getSelectedDays() = selectedDays
 }

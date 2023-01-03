@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.SharedFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class SelectDaysViewModel @Inject constructor() : BaseViewModel() {
+class SelectRepeatOptionViewModel @Inject constructor() : BaseViewModel() {
 
     val selectedOptionFlow: SharedFlow<RepeatOptionsUiData> = MutableSharedFlow(replay = 1)
 

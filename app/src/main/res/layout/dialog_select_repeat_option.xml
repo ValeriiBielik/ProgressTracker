@@ -16,25 +16,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_24"
-            app:itemTitle="@string/repeat_option_once" />
+            app:selectableItemTitle="@string/repeat_option_once" />
 
         <com.bielik.progresstracker.view.SelectableItemView
             android:id="@+id/sivOptionEveryday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:itemTitle="@string/repeat_option_everyday" />
+            app:selectableItemTitle="@string/repeat_option_everyday" />
 
         <com.bielik.progresstracker.view.SelectableItemView
             android:id="@+id/sivOptionOnWorkDays"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:itemTitle="@string/repeat_option_on_work_days" />
+            app:selectableItemTitle="@string/repeat_option_on_work_days" />
 
         <com.bielik.progresstracker.view.SelectableItemView
             android:id="@+id/sivOptionSelectDays"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:itemTitle="@string/repeat_option_select_days" />
+            app:selectableItemTitle="@string/repeat_option_select_days" />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

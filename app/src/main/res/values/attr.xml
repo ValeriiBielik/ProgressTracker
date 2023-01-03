@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="SelectableItemView">
-        <attr name="itemTitle" format="reference" />
+        <attr name="selectableItemTitle" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CheckableItemView">
+        <attr name="checkableItemTitle" format="reference" />
     </declare-styleable>
 </resources>

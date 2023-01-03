@@ -42,8 +42,11 @@
         android:label="@string/fragment_add_ticket"
         tools:layout="@layout/fragment_add_ticket">
         <action
-            android:id="@+id/openSelectDayOptionDialog"
+            android:id="@+id/openSelectRepeatOptionDialog"
             app:destination="@id/navigationSelectRepeatOptionDialog" />
+        <action
+            android:id="@+id/openSelectDaysDialog"
+            app:destination="@id/navigationSelectDaysDialog" />
     </fragment>
 
     <fragment
@@ -65,5 +68,17 @@
         <argument
             android:name="repeatOption"
             app:argType=".model.RepeatOption" />
+    </dialog>
+
+    <dialog
+        android:id="@+id/navigationSelectDaysDialog"
+        android:name="com.bielik.progresstracker.feature.select_days.SelectDaysDialog"
+        android:label="@string/dialog_select_days"
+        tools:layout="@layout/dialog_select_days">
+        <argument
+            android:name="selectedDays"
+            android:defaultValue="@null"
+            app:argType=".model.Day[]"
+            app:nullable="true" />
     </dialog>
 </navigation>

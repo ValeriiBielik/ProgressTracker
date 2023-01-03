@@ -1,11 +1,15 @@
 package com.bielik.progresstracker.base
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.FrameLayout
 import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -37,6 +41,21 @@ abstract class BaseBottomSheetDialogFragment<VB : ViewBinding, VM : BaseViewMode
         super.onViewCreated(view, savedInstanceState)
         setupUI()
         dialog?.setTitle(null)
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = super.onCreateDialog(savedInstanceState) as BottomSheetDialog
+        dialog.setOnShowListener {
+            val bottomSheet = dialog.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+            bottomSheet?.let {
+                BottomSheetBehavior.from(it).apply {
+                    skipCollapsed = false
+                    state = BottomSheetBehavior.STATE_EXPANDED
+                    isFitToContents = true
+                }
+            }
+        }
+        return dialog
     }
 
     protected abstract fun setupUI()

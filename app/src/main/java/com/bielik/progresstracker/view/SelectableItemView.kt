@@ -7,7 +7,6 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import com.bielik.progresstracker.R
 import com.bielik.progresstracker.databinding.LayoutItemSelectableBinding
 import com.bielik.progresstracker.utils.extensions.gone
-import com.bielik.progresstracker.utils.extensions.onClick
 import com.bielik.progresstracker.utils.extensions.visible
 
 class SelectableItemView @JvmOverloads constructor(
@@ -21,7 +20,7 @@ class SelectableItemView @JvmOverloads constructor(
     init {
         with(binding) {
             val attributes = root.context.obtainStyledAttributes(attributeSet, R.styleable.SelectableItemView)
-            tvTitle.text = (root.context.getString(attributes.getResourceId(R.styleable.SelectableItemView_itemTitle, R.string.empty)))
+            tvTitle.text = (root.context.getString(attributes.getResourceId(R.styleable.SelectableItemView_selectableItemTitle, R.string.empty)))
             attributes.recycle()
         }
     }

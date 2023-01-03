@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">ProgressTracker</string>
     <string name="empty" />
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="comma">, </string>
 
     <!--OnBoardingActivity-->
     <string name="label_enter_your_name">Enter your name</string>
@@ -25,6 +28,7 @@
     <string name="fragment_add_ticket">FragmentAddTicket</string>
     <string name="fragment_ticket_details">FragmentTicketDetails</string>
     <string name="dialog_select_repeat_option">DialogSelectRepeatOption</string>
+    <string name="dialog_select_days">DialogSelectDays</string>
     <!-- /Fragments -->
 
     <!-- HomeFragment -->
@@ -66,4 +70,16 @@
     <string name="repeat_option_on_work_days">On work days</string>
     <string name="repeat_option_select_days">Select days</string>
     <!-- /DialogSelectRepeatOptions-->
+
+    <!-- DaysAbbreviations-->
+    <string name="abbreviation_monday">Mon</string>
+    <string name="abbreviation_tuesday">Tues</string>
+    <string name="abbreviation_wednesday">Wed</string>
+    <string name="abbreviation_thursday">Thurs</string>
+    <string name="abbreviation_friday">Fri</string>
+    <string name="abbreviation_saturday">Sat</string>
+    <string name="abbreviation_sunday">Sun</string>
+    <string name="abbreviation_mon_sun">Mon-Sun</string>
+    <string name="abbreviation_mon_fri">Mon-Fri</string>
+    <!-- /DaysAbbreviations-->
 </resources>
