@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.bielik.progresstracker.base.BaseAdapter
 import com.bielik.progresstracker.databinding.ItemTicketBinding
-import com.bielik.progresstracker.model.TicketModel
+import com.bielik.progresstracker.model.database.TicketModel
 
 class TicketsAdapter(
     private val onItemClick: (id: Long) -> Unit

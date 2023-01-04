@@ -6,7 +6,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bielik.progresstracker.base.BaseBindingFragment
 import com.bielik.progresstracker.databinding.FragmentTicketDetailsBinding
-import com.bielik.progresstracker.model.TicketModel
+import com.bielik.progresstracker.model.database.TicketModel
 import com.bielik.progresstracker.utils.extensions.gone
 import com.bielik.progresstracker.utils.extensions.onClick
 import com.bielik.progresstracker.utils.extensions.setVisibleOrGone

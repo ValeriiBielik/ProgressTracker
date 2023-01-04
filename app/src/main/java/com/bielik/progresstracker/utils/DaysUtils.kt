@@ -2,7 +2,7 @@ package com.bielik.progresstracker.utils
 
 import android.content.Context
 import com.bielik.progresstracker.R
-import com.bielik.progresstracker.model.Day
+import com.bielik.progresstracker.model.common.Day
 
 fun getDaysAbbreviateString(context: Context, days: List<Day>): String {
     val daysStringBuilder = StringBuilder()

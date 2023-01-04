@@ -50,11 +50,11 @@
     <string name="label_repeat_on">Repeat on:</string>
 
     <string name="error_title_is_empty">Please, enter title</string>
+    <string name="error_ticket_type_is_empty">Please, select ticket type</string>
     <string name="label_repeat">Repeat</string>
 
     <string-array name="array_ticket_types">
         <item>Task</item>
-        <item>Repeatable Task</item>
         <item>Progress Tracked Task</item>
     </string-array>
     <!-- /FragmentAddTicket -->

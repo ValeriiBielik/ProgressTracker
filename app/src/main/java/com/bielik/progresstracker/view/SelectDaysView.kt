@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bielik.progresstracker.databinding.ViewSelectDaysBinding
-import com.bielik.progresstracker.model.Day
+import com.bielik.progresstracker.model.common.Day
 
 class SelectDaysView @JvmOverloads constructor(
     ctx: Context,

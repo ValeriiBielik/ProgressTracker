@@ -67,7 +67,7 @@
         tools:layout="@layout/dialog_select_repeat_option">
         <argument
             android:name="repeatOption"
-            app:argType=".model.RepeatOption" />
+            app:argType=".model.common.RepeatOption" />
     </dialog>
 
     <dialog
@@ -78,7 +78,7 @@
         <argument
             android:name="selectedDays"
             android:defaultValue="@null"
-            app:argType=".model.Day[]"
+            app:argType=".model.common.Day[]"
             app:nullable="true" />
     </dialog>
 </navigation>

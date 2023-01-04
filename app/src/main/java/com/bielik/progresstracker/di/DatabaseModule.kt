@@ -3,6 +3,7 @@ package com.bielik.progresstracker.di
 import android.content.Context
 import androidx.room.Room
 import com.bielik.progresstracker.database.AppDatabase
+import com.bielik.progresstracker.database.dao.TicketTemplatesDao
 import com.bielik.progresstracker.database.dao.TicketsDao
 import dagger.Module
 import dagger.Provides
@@ -20,6 +21,11 @@ class DatabaseModule {
     @Provides
     fun provideTicketsDao(appDatabase: AppDatabase): TicketsDao {
         return appDatabase.ticketsDao()
+    }
+
+    @Provides
+    fun provideTicketTemplatesDao(appDatabase: AppDatabase): TicketTemplatesDao {
+        return appDatabase.ticketTemplatesDao()
     }
 
     @Provides

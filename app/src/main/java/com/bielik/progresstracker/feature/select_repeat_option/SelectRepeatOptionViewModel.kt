@@ -2,7 +2,7 @@ package com.bielik.progresstracker.feature.select_repeat_option
 
 import com.bielik.progresstracker.base.BaseViewModel
 import com.bielik.progresstracker.feature.select_repeat_option.model.RepeatOptionsUiData
-import com.bielik.progresstracker.model.RepeatOption
+import com.bielik.progresstracker.model.common.RepeatOption
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow

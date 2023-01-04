@@ -9,7 +9,7 @@ import androidx.navigation.fragment.navArgs
 import com.bielik.progresstracker.base.BaseBottomSheetDialogFragment
 import com.bielik.progresstracker.databinding.DialogSelectRepeatOptionBinding
 import com.bielik.progresstracker.feature.select_repeat_option.model.RepeatOptionsUiData
-import com.bielik.progresstracker.model.RepeatOption
+import com.bielik.progresstracker.model.common.RepeatOption
 import com.bielik.progresstracker.utils.extensions.onClick
 import com.bielik.progresstracker.utils.extensions.setNavigationResult
 import dagger.hilt.android.AndroidEntryPoint

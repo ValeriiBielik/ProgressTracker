@@ -3,7 +3,7 @@ package com.bielik.progresstracker.feature.home
 import androidx.lifecycle.viewModelScope
 import com.bielik.progresstracker.base.BaseViewModel
 import com.bielik.progresstracker.database.dao.TicketsDao
-import com.bielik.progresstracker.model.TicketModel
+import com.bielik.progresstracker.model.database.TicketModel
 import com.bielik.progresstracker.repository.PreferencesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow

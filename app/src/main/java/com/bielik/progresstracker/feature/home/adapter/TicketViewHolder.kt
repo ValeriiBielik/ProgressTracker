@@ -5,8 +5,8 @@ import androidx.core.content.ContextCompat
 import com.bielik.progresstracker.R
 import com.bielik.progresstracker.base.BaseBindingViewHolder
 import com.bielik.progresstracker.databinding.ItemTicketBinding
-import com.bielik.progresstracker.model.TicketModel
-import com.bielik.progresstracker.model.TicketType
+import com.bielik.progresstracker.model.common.TicketType
+import com.bielik.progresstracker.model.database.TicketModel
 import com.bielik.progresstracker.utils.extensions.onClick
 
 class TicketViewHolder(
@@ -24,10 +24,10 @@ class TicketViewHolder(
 
         tvTitle.text = item.name
 
-        when (item.ticketType) {
-            TicketType.TASK -> ivTicket.setImageResource(R.drawable.ic_task)
-            TicketType.REPEATABLE_TASK -> ivTicket.setImageResource(R.drawable.ic_repeatable_task)
-            TicketType.PROGRESS_TRACKED_TASK -> ivTicket.setImageResource(R.drawable.ic_progress_track)
+        when {
+            item.ticketType == TicketType.TASK && item.templateId != null -> ivTicket.setImageResource(R.drawable.ic_repeatable_task)
+            item.ticketType == TicketType.TASK -> ivTicket.setImageResource(R.drawable.ic_task)
+            item.ticketType == TicketType.PROGRESS_TRACKED_TASK -> ivTicket.setImageResource(R.drawable.ic_progress_track)
         }
 
         flIconContainer.backgroundTintList = ColorStateList.valueOf(if (item.isDone) colorGreen else colorRed)

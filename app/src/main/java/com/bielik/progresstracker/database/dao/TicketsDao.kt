@@ -1,7 +1,7 @@
 package com.bielik.progresstracker.database.dao
 
 import androidx.room.*
-import com.bielik.progresstracker.model.TicketModel
+import com.bielik.progresstracker.model.database.TicketModel
 
 @Dao
 interface TicketsDao {

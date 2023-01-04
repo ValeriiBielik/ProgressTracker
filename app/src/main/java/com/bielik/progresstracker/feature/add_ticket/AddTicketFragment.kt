@@ -11,10 +11,10 @@ import com.bielik.progresstracker.base.BaseBindingFragment
 import com.bielik.progresstracker.databinding.FragmentAddTicketBinding
 import com.bielik.progresstracker.feature.select_days.SelectDaysDialog.Companion.KEY_SELECTED_DAYS
 import com.bielik.progresstracker.feature.select_repeat_option.SelectRepeatOptionDialog.Companion.KEY_REPEAT_OPTION
-import com.bielik.progresstracker.model.Day
-import com.bielik.progresstracker.model.RepeatOption
-import com.bielik.progresstracker.model.TicketType
-import com.bielik.progresstracker.model.parseTicketType
+import com.bielik.progresstracker.model.common.Day
+import com.bielik.progresstracker.model.common.RepeatOption
+import com.bielik.progresstracker.model.common.TicketType
+import com.bielik.progresstracker.model.common.parseTicketType
 import com.bielik.progresstracker.utils.extensions.getNavigationResult
 import com.bielik.progresstracker.utils.extensions.onClick
 import com.bielik.progresstracker.utils.extensions.setVisibleOrGone
@@ -46,7 +46,7 @@ class AddTicketFragment : BaseBindingFragment<FragmentAddTicketBinding, AddTicke
         }
         etTicketType.onItemClickListener = OnItemClickListener { _, _, position, _ ->
             viewModel.onTicketTypeSelected(parseTicketType(position))
-            clRepeat.setVisibleOrGone(position == TicketType.REPEATABLE_TASK.ordinal)
+            clRepeat.setVisibleOrGone(position == TicketType.TASK.ordinal)
         }
         clRepeat.onClick { viewModel.onRepeatOptionClick() }
     }
