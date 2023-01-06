@@ -57,7 +57,7 @@ class TemplatesCheckTaskReceiver : BroadcastReceiver() {
         CoroutineScope(SupervisorJob()).launch {
             ticketsDao.insertTicket(
                 TicketModel(
-                    name = "${template.name} GENERATED",
+                    name = "${template.name} GENERATED", // todo remove
                     description = template.description,
                     isDone = false,
                     ticketTypeIndex = template.ticketTypeIndex,

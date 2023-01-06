@@ -30,29 +30,30 @@ class AddTicketViewModel @Inject constructor(
     val errorFlow: SharedFlow<StringResource> = MutableSharedFlow()
     val successFlow: SharedFlow<Unit> = MutableSharedFlow()
     val onRepeatOptionClickEvent: SharedFlow<RepeatOption> = MutableSharedFlow()
+    val onTypeOptionClickEvent: SharedFlow<TicketType> = MutableSharedFlow()
 
-    private var selectedTicketType: TicketType? = null
+    private var ticketType: TicketType = TicketType.TASK
     private var repeatOption: RepeatOption = RepeatOption.ONCE
     private val selectedDays: MutableList<Day> = mutableListOf()
 
     fun onTicketTypeSelected(type: TicketType) {
-        selectedTicketType = type
+        ticketType = type
     }
 
     // todo if should work for different time zones -> convert to gmt date and then convert to necessary timezone
     fun onSaveClick(name: String?, description: String?) {
         if (!isDataValid(name)) return
-        proceedSave(name!!, description, selectedTicketType!!)
+        proceedSave(name!!, description)
     }
 
-    private fun proceedSave(name: String, description: String?, ticketType: TicketType) {
+    private fun proceedSave(name: String, description: String?) {
         when (ticketType) {
-            TicketType.TASK -> proceedTaskSave(name, description, ticketType)
+            TicketType.TASK -> proceedTaskSave(name, description)
             TicketType.PROGRESS_TRACKED_TASK -> TODO()
         }
     }
 
-    private fun proceedTaskSave(name: String, description: String?, ticketType: TicketType) {
+    private fun proceedTaskSave(name: String, description: String?) {
         when (repeatOption) {
             RepeatOption.ONCE -> createAndSaveTicket(name, description, ticketType)
             else -> createAndSaveTemplate(name, description, ticketType)
@@ -110,7 +111,6 @@ class AddTicketViewModel @Inject constructor(
     private fun isDataValid(name: String?): Boolean {
         val error = when {
             name.isNullOrBlank() -> StringResource(R.string.error_title_is_empty)
-            selectedTicketType == null -> StringResource(R.string.error_ticket_type_is_empty)
             else -> null
         }
 
@@ -144,6 +144,10 @@ class AddTicketViewModel @Inject constructor(
 
     fun onRepeatOptionClick() {
         onRepeatOptionClickEvent.emitViewModelScope(repeatOption)
+    }
+
+    fun onOptionViewTypeClick() {
+        onTypeOptionClickEvent.emitViewModelScope(ticketType)
     }
 
     fun onDaysSelected(days: List<Day>) {

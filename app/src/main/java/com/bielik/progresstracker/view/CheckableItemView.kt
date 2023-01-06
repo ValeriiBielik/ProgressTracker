@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bielik.progresstracker.R
-import com.bielik.progresstracker.databinding.LayoutItemCheckableBinding
+import com.bielik.progresstracker.databinding.ViewCheckableItemBinding
 import com.bielik.progresstracker.utils.extensions.onClick
 
 class CheckableItemView @JvmOverloads constructor(
@@ -14,7 +14,7 @@ class CheckableItemView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : ConstraintLayout(ctx, attributeSet, defStyleAttr) {
 
-    private val binding = LayoutItemCheckableBinding.inflate(LayoutInflater.from(context), this, true)
+    private val binding = ViewCheckableItemBinding.inflate(LayoutInflater.from(context), this, true)
 
     val isChecked get() = binding.cbChecked.isChecked
 

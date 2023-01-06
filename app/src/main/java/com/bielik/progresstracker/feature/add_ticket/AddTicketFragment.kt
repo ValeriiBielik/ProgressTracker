@@ -2,8 +2,6 @@ package com.bielik.progresstracker.feature.add_ticket
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.AdapterView.OnItemClickListener
-import android.widget.ArrayAdapter
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.bielik.progresstracker.R
@@ -11,10 +9,10 @@ import com.bielik.progresstracker.base.BaseBindingFragment
 import com.bielik.progresstracker.databinding.FragmentAddTicketBinding
 import com.bielik.progresstracker.feature.select_days.SelectDaysDialog.Companion.KEY_SELECTED_DAYS
 import com.bielik.progresstracker.feature.select_repeat_option.SelectRepeatOptionDialog.Companion.KEY_REPEAT_OPTION
+import com.bielik.progresstracker.feature.select_ticket_type.SelectTicketTypeDialog.Companion.KEY_TICKET_TYPE
 import com.bielik.progresstracker.model.common.Day
 import com.bielik.progresstracker.model.common.RepeatOption
 import com.bielik.progresstracker.model.common.TicketType
-import com.bielik.progresstracker.model.common.parseTicketType
 import com.bielik.progresstracker.utils.extensions.getNavigationResult
 import com.bielik.progresstracker.utils.extensions.onClick
 import com.bielik.progresstracker.utils.extensions.setVisibleOrGone
@@ -28,7 +26,6 @@ class AddTicketFragment : BaseBindingFragment<FragmentAddTicketBinding, AddTicke
 
     override fun initUI() {
         implementListeners()
-        setupContent()
         subscribe()
     }
 
@@ -44,21 +41,8 @@ class AddTicketFragment : BaseBindingFragment<FragmentAddTicketBinding, AddTicke
             }
 
         }
-        etTicketType.onItemClickListener = OnItemClickListener { _, _, position, _ ->
-            viewModel.onTicketTypeSelected(parseTicketType(position))
-            clRepeat.setVisibleOrGone(position == TicketType.TASK.ordinal)
-        }
         clRepeat.onClick { viewModel.onRepeatOptionClick() }
-    }
-
-    private fun setupContent() = withBinding {
-        etTicketType.setAdapter(
-            ArrayAdapter(
-                requireContext(),
-                android.R.layout.simple_spinner_dropdown_item,
-                resources.getStringArray(R.array.array_ticket_types)
-            )
-        )
+        optionViewType.onClick { viewModel.onOptionViewTypeClick() }
     }
 
     private fun subscribe() {
@@ -67,8 +51,12 @@ class AddTicketFragment : BaseBindingFragment<FragmentAddTicketBinding, AddTicke
         viewModel.onRepeatOptionClickEvent.observeWhenResumed {
             findNavController().navigate(AddTicketFragmentDirections.openSelectRepeatOptionDialog(it))
         }
+        viewModel.onTypeOptionClickEvent.observeWhenResumed {
+            findNavController().navigate(AddTicketFragmentDirections.openSelectTicketTypeDialog(it))
+        }
         getNavigationResult<RepeatOption>(R.id.navigationAddTicket, KEY_REPEAT_OPTION, onResult = { onRepeatOptionSelected(it) })
         getNavigationResult<List<Day>>(R.id.navigationAddTicket, KEY_SELECTED_DAYS, onResult = { onDaysSelected(it) })
+        getNavigationResult<TicketType>(R.id.navigationAddTicket, KEY_TICKET_TYPE, onResult = { onTicketTypeSelected(it) })
     }
 
     private fun onRepeatOptionSelected(repeatOption: RepeatOption) = withBinding {
@@ -88,6 +76,15 @@ class AddTicketFragment : BaseBindingFragment<FragmentAddTicketBinding, AddTicke
     private fun onDaysSelected(days: List<Day>) = withBinding {
         viewModel.onDaysSelected(days)
         tvRepeatOption.text = getDaysAbbreviateString(requireContext(), days)
+    }
+
+    private fun onTicketTypeSelected(ticketType: TicketType) = withBinding {
+        viewModel.onTicketTypeSelected(ticketType)
+        clRepeat.setVisibleOrGone(ticketType == TicketType.TASK)
+        when (ticketType) {
+            TicketType.TASK -> optionViewType.setValue(getString(R.string.ticket_type_task))
+            TicketType.PROGRESS_TRACKED_TASK -> optionViewType.setValue(getString(R.string.ticket_type_progress_task))
+        }
     }
 
     override fun attachBinding(inflater: LayoutInflater, container: ViewGroup?, attachToRoot: Boolean) =

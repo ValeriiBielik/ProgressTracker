@@ -29,6 +29,7 @@
     <string name="fragment_ticket_details">FragmentTicketDetails</string>
     <string name="dialog_select_repeat_option">DialogSelectRepeatOption</string>
     <string name="dialog_select_days">DialogSelectDays</string>
+    <string name="dialog_select_ticket_type">DialogSelectTicketType</string>
     <!-- /Fragments -->
 
     <!-- HomeFragment -->
@@ -52,6 +53,7 @@
     <string name="error_title_is_empty">Please, enter title</string>
     <string name="error_ticket_type_is_empty">Please, select ticket type</string>
     <string name="label_repeat">Repeat</string>
+    <string name="label_type">Type</string>
 
     <string-array name="array_ticket_types">
         <item>Task</item>
@@ -70,6 +72,11 @@
     <string name="repeat_option_on_work_days">On work days</string>
     <string name="repeat_option_select_days">Select days</string>
     <!-- /DialogSelectRepeatOptions-->
+
+    <!-- DialogSelectTicketType-->
+    <string name="ticket_type_task">Task</string>
+    <string name="ticket_type_progress_task">Progress Task</string>
+    <!-- /DialogSelectTicketType-->
 
     <!-- DaysAbbreviations-->
     <string name="abbreviation_monday">Mon</string>

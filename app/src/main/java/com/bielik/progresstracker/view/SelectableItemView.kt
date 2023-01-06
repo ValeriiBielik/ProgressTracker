@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.bielik.progresstracker.R
-import com.bielik.progresstracker.databinding.LayoutItemSelectableBinding
+import com.bielik.progresstracker.databinding.ViewSelectableItemBinding
 import com.bielik.progresstracker.utils.extensions.gone
 import com.bielik.progresstracker.utils.extensions.visible
 
@@ -15,7 +15,7 @@ class SelectableItemView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : ConstraintLayout(ctx, attributeSet, defStyleAttr) {
 
-    private val binding = LayoutItemSelectableBinding.inflate(LayoutInflater.from(context), this, true)
+    private val binding = ViewSelectableItemBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
         with(binding) {

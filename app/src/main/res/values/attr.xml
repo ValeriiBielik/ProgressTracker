@@ -7,4 +7,9 @@
     <declare-styleable name="CheckableItemView">
         <attr name="checkableItemTitle" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="OptionView">
+        <attr name="optionTitle" format="reference" />
+        <attr name="optionValue" format="reference" />
+    </declare-styleable>
 </resources>

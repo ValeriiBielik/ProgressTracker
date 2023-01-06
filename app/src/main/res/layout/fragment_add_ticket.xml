@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -60,32 +59,21 @@
                     android:maxLines="3" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilTicketType"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            <com.bielik.progresstracker.view.OptionView
+                android:id="@+id/optionViewType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/dimen_16"
-                android:layout_marginTop="@dimen/dimen_16"
-                android:hint="@string/hint_select_type"
-                app:layout_constraintTop_toBottomOf="@id/tilTicketDescription">
-
-                <com.google.android.material.textfield.MaterialAutoCompleteTextView
-                    android:id="@+id/etTicketType"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="@dimen/dimen_10"
+                app:layout_constraintTop_toBottomOf="@id/tilTicketDescription"
+                app:optionTitle="@string/label_type"
+                app:optionValue="@string/ticket_type_task" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/clRepeat"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_60"
-                android:layout_marginTop="@dimen/dimen_10"
                 android:background="?attr/selectableItemBackground"
-                android:visibility="gone"
-                app:layout_constraintTop_toBottomOf="@id/tilTicketType"
-                tools:visibility="visible">
+                app:layout_constraintTop_toBottomOf="@id/optionViewType">
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvRepeatLabel"

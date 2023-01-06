@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_rect_top_rounded">
+
+    <LinearLayout
+        android:id="@+id/standard_bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.bielik.progresstracker.view.SelectableItemView
+            android:id="@+id/sivOptionTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_24"
+            app:selectableItemTitle="@string/ticket_type_task" />
+
+        <com.bielik.progresstracker.view.SelectableItemView
+            android:id="@+id/sivOptionProgressTask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:selectableItemTitle="@string/ticket_type_progress_task" />
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
