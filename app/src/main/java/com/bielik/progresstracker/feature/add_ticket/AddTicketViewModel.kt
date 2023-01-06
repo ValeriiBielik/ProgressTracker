@@ -27,10 +27,7 @@ class AddTicketViewModel @Inject constructor(
     private val templatesDao: TicketTemplatesDao
 ) : BaseViewModel() {
 
-    val errorFlow: SharedFlow<StringResource> = MutableSharedFlow()
-    val successFlow: SharedFlow<Unit> = MutableSharedFlow()
-    val onRepeatOptionClickEvent: SharedFlow<RepeatOption> = MutableSharedFlow()
-    val onTypeOptionClickEvent: SharedFlow<TicketType> = MutableSharedFlow()
+    val uiEventFlow: SharedFlow<UiEvent> = MutableSharedFlow()
 
     private var ticketType: TicketType = TicketType.TASK
     private var repeatOption: RepeatOption = RepeatOption.ONCE
@@ -38,19 +35,16 @@ class AddTicketViewModel @Inject constructor(
 
     fun onTicketTypeSelected(type: TicketType) {
         ticketType = type
+        when (ticketType) {
+            TicketType.TASK -> onRepeatOptionSelected(RepeatOption.ONCE)
+            TicketType.PROGRESS_TRACKED_TASK -> onRepeatOptionSelected(RepeatOption.EVERYDAY)
+        }
     }
 
     // todo if should work for different time zones -> convert to gmt date and then convert to necessary timezone
     fun onSaveClick(name: String?, description: String?) {
         if (!isDataValid(name)) return
-        proceedSave(name!!, description)
-    }
-
-    private fun proceedSave(name: String, description: String?) {
-        when (ticketType) {
-            TicketType.TASK -> proceedTaskSave(name, description)
-            TicketType.PROGRESS_TRACKED_TASK -> TODO()
-        }
+        proceedTaskSave(name!!, description)
     }
 
     private fun proceedTaskSave(name: String, description: String?) {
@@ -73,7 +67,7 @@ class AddTicketViewModel @Inject constructor(
                 templateId = templateId
             )
             ticketsDao.insertTicket(ticket)
-            successFlow.emit(Unit)
+            uiEventFlow.emit(SuccessEvent)
         }
     }
 
@@ -90,7 +84,7 @@ class AddTicketViewModel @Inject constructor(
                 createAndSaveTicket(name, description, ticketType, id)
                 return@launch
             }
-            successFlow.emit(Unit)
+            uiEventFlow.emit(SuccessEvent)
         }
     }
 
@@ -115,7 +109,7 @@ class AddTicketViewModel @Inject constructor(
         }
 
         error?.let {
-            errorFlow.emitViewModelScope(it)
+            uiEventFlow.emitViewModelScope(ErrorEvent(it))
             return false
         } ?: run {
             return true
@@ -123,31 +117,28 @@ class AddTicketViewModel @Inject constructor(
     }
 
     fun onRepeatOptionSelected(option: RepeatOption) {
+        if (option == RepeatOption.SELECT_DAYS) {
+            uiEventFlow.emitViewModelScope(OpenSelectDaysDialogEvent(selectedDays))
+            return
+        }
+
         repeatOption = option
+        selectedDays.clear()
         when (option) {
             RepeatOption.ONCE -> {}
-            RepeatOption.EVERYDAY -> {
-                selectedDays.apply {
-                    clear()
-                    addAll(getAllDays())
-                }
-            }
-            RepeatOption.ON_WORK_DAYS -> {
-                selectedDays.apply {
-                    clear()
-                    addAll(getWorkDays())
-                }
-            }
+            RepeatOption.EVERYDAY -> selectedDays.addAll(getAllDays())
+            RepeatOption.ON_WORK_DAYS -> selectedDays.addAll(getWorkDays())
             else -> throw IllegalStateException()
         }
+        uiEventFlow.emitViewModelScope(OnRepeatOptionSelectedEvent(repeatOption))
     }
 
     fun onRepeatOptionClick() {
-        onRepeatOptionClickEvent.emitViewModelScope(repeatOption)
+        uiEventFlow.emitViewModelScope(OnRepeatOptionClickEvent(repeatOption))
     }
 
     fun onOptionViewTypeClick() {
-        onTypeOptionClickEvent.emitViewModelScope(ticketType)
+        uiEventFlow.emitViewModelScope(OnTypeOptionClickEvent(ticketType))
     }
 
     fun onDaysSelected(days: List<Day>) {
@@ -157,6 +148,4 @@ class AddTicketViewModel @Inject constructor(
             addAll(days)
         }
     }
-
-    fun getSelectedDays() = selectedDays
 }

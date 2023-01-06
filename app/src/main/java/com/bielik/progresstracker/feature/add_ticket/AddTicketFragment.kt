@@ -15,7 +15,6 @@ import com.bielik.progresstracker.model.common.RepeatOption
 import com.bielik.progresstracker.model.common.TicketType
 import com.bielik.progresstracker.utils.extensions.getNavigationResult
 import com.bielik.progresstracker.utils.extensions.onClick
-import com.bielik.progresstracker.utils.extensions.setVisibleOrGone
 import com.bielik.progresstracker.utils.getDaysAbbreviateString
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,30 +45,41 @@ class AddTicketFragment : BaseBindingFragment<FragmentAddTicketBinding, AddTicke
     }
 
     private fun subscribe() {
-        viewModel.errorFlow.observeWhenResumed { showMessage(it.getString(requireContext())) }
-        viewModel.successFlow.observeWhenResumed { onBackPressed() }
-        viewModel.onRepeatOptionClickEvent.observeWhenResumed {
-            findNavController().navigate(AddTicketFragmentDirections.openSelectRepeatOptionDialog(it))
-        }
-        viewModel.onTypeOptionClickEvent.observeWhenResumed {
-            findNavController().navigate(AddTicketFragmentDirections.openSelectTicketTypeDialog(it))
-        }
-        getNavigationResult<RepeatOption>(R.id.navigationAddTicket, KEY_REPEAT_OPTION, onResult = { onRepeatOptionSelected(it) })
+        viewModel.uiEventFlow.observeWhenResumed { handleEvent(it) }
+        getNavigationResult<RepeatOption>(R.id.navigationAddTicket, KEY_REPEAT_OPTION, onResult = { viewModel.onRepeatOptionSelected(it) })
         getNavigationResult<List<Day>>(R.id.navigationAddTicket, KEY_SELECTED_DAYS, onResult = { onDaysSelected(it) })
         getNavigationResult<TicketType>(R.id.navigationAddTicket, KEY_TICKET_TYPE, onResult = { onTicketTypeSelected(it) })
     }
 
+    private fun handleEvent(event: UiEvent) {
+        when (event) {
+            is ErrorEvent -> showMessage(event.stringResource.getString(requireContext()))
+            is OnRepeatOptionClickEvent -> openSelectRepeatOptionDialog(event.repeatOption)
+            is OnRepeatOptionSelectedEvent -> onRepeatOptionSelected(event.repeatOption)
+            is OnTypeOptionClickEvent -> openSelectTicketTypeDialog(event.ticketType)
+            is OpenSelectDaysDialogEvent -> openSelectDaysDialog(event.days)
+            SuccessEvent -> onBackPressed()
+        }
+    }
+
+    private fun openSelectRepeatOptionDialog(repeatOption: RepeatOption) {
+        findNavController().navigate(AddTicketFragmentDirections.openSelectRepeatOptionDialog(repeatOption))
+    }
+
+    private fun openSelectTicketTypeDialog(ticketType: TicketType) {
+        findNavController().navigate(AddTicketFragmentDirections.openSelectTicketTypeDialog(ticketType))
+    }
+
+    private fun openSelectDaysDialog(days: List<Day>) {
+        findNavController().navigate(AddTicketFragmentDirections.openSelectDaysDialog(days.toTypedArray()))
+    }
+
     private fun onRepeatOptionSelected(repeatOption: RepeatOption) = withBinding {
-        if (repeatOption == RepeatOption.SELECT_DAYS) {
-            findNavController().navigate(AddTicketFragmentDirections.openSelectDaysDialog(viewModel.getSelectedDays().toTypedArray()))
-        } else {
-            viewModel.onRepeatOptionSelected(repeatOption)
-            tvRepeatOption.text = when (repeatOption) {
-                RepeatOption.ONCE -> getString(R.string.repeat_option_once)
-                RepeatOption.EVERYDAY -> getString(R.string.repeat_option_everyday)
-                RepeatOption.ON_WORK_DAYS -> getString(R.string.abbreviation_mon_fri)
-                else -> throw IllegalStateException()
-            }
+        tvRepeatOption.text = when (repeatOption) {
+            RepeatOption.ONCE -> getString(R.string.repeat_option_once)
+            RepeatOption.EVERYDAY -> getString(R.string.repeat_option_everyday)
+            RepeatOption.ON_WORK_DAYS -> getString(R.string.abbreviation_mon_fri)
+            else -> throw IllegalStateException()
         }
     }
 
@@ -80,7 +90,6 @@ class AddTicketFragment : BaseBindingFragment<FragmentAddTicketBinding, AddTicke
 
     private fun onTicketTypeSelected(ticketType: TicketType) = withBinding {
         viewModel.onTicketTypeSelected(ticketType)
-        clRepeat.setVisibleOrGone(ticketType == TicketType.TASK)
         when (ticketType) {
             TicketType.TASK -> optionViewType.setValue(getString(R.string.ticket_type_task))
             TicketType.PROGRESS_TRACKED_TASK -> optionViewType.setValue(getString(R.string.ticket_type_progress_task))
