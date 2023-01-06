@@ -11,7 +11,7 @@ data class TicketModel(
     var description: String?,
     var isDone: Boolean,
     var ticketTypeIndex: Int,
-    var timestamp: Long?,
+    var timestamp: Long,
     var progress: Int?,
     var templateId: Long?
 ) {
