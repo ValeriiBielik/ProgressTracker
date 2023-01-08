@@ -43,14 +43,29 @@
         android:layout_height="@dimen/dimen_48"
         android:layout_marginEnd="@dimen/dimen_16"
         android:background="@android:color/transparent"
+        android:padding="@dimen/dimen_8"
         android:scaleType="centerInside"
         android:visibility="gone"
-        android:padding="@dimen/dimen_8"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvMonth"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_check"
         app:tint="@color/white"
+        tools:visibility="visible" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dimen_16"
+        android:textAlignment="textEnd"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_16"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="January"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

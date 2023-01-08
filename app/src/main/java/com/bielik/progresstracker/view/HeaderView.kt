@@ -16,10 +16,16 @@ class HeaderView @JvmOverloads constructor(
 
     private val binding = LayoutHeaderBinding.inflate(LayoutInflater.from(context), this, true)
 
-    fun setupView(title: String, showBackIcon: Boolean = false, showSaveIcon: Boolean = false) {
+    fun setupView(
+        title: String,
+        showBackIcon: Boolean = false,
+        showSaveIcon: Boolean = false,
+        showMonthTitle: Boolean = false
+    ) {
         binding.tvTitle.text = title
         binding.ivBack.setVisibleOrGone(showBackIcon)
         binding.btnSave.setVisibleOrGone(showSaveIcon)
+        binding.tvMonth.setVisibleOrGone(showMonthTitle)
     }
 
     fun setOnBackClickListener(onClick: () -> Unit) {
@@ -28,5 +34,9 @@ class HeaderView @JvmOverloads constructor(
 
     fun setOnSaveClickListener(onClick: () -> Unit) {
         binding.btnSave.onClick { onClick.invoke() }
+    }
+
+    fun updateMonthTitle(title: String) {
+        binding.tvMonth.text = title
     }
 }

@@ -46,4 +46,8 @@
     <color name="secondaryLightColor">#62efff</color>
     <color name="secondaryDarkColor">#008ba3</color>
 
+    <color name="example_7_white">#D9FFFFFF</color>
+    <color name="example_7_yellow">#FFEB3B</color>
+    <color name="colorPrimary">#3F51B5</color>
+
 </resources>

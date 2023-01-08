@@ -88,5 +88,6 @@
     <string name="abbreviation_sunday">Sun</string>
     <string name="abbreviation_mon_sun">Mon-Sun</string>
     <string name="abbreviation_mon_fri">Mon-Fri</string>
+    <string name="label_today">Today</string>
     <!-- /DaysAbbreviations-->
 </resources>
