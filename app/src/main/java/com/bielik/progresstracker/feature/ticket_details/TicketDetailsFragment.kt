@@ -6,10 +6,12 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bielik.progresstracker.base.BaseBindingFragment
 import com.bielik.progresstracker.databinding.FragmentTicketDetailsBinding
+import com.bielik.progresstracker.model.common.TicketType
 import com.bielik.progresstracker.model.database.TicketModel
 import com.bielik.progresstracker.utils.extensions.gone
 import com.bielik.progresstracker.utils.extensions.onClick
 import com.bielik.progresstracker.utils.extensions.setVisibleOrGone
+import com.bielik.progresstracker.utils.extensions.textChanges
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,7 +28,12 @@ class TicketDetailsFragment : BaseBindingFragment<FragmentTicketDetailsBinding, 
 
     private fun implementListeners() = withBinding {
         headerView.setOnBackClickListener { onBackPressed() }
-        btnMarkAsDone.onClick { viewModel.onMarkAsDoneClick() }
+        btnMarkAsDone.onClick {
+            viewModel.onMarkAsDoneClick(etProgress.text.toString())
+        }
+        etProgress.textChanges().observeWhenResumed {
+            btnMarkAsDone.isEnabled = !it.isNullOrBlank()
+        }
     }
 
     private fun subscribe() {
@@ -40,6 +47,11 @@ class TicketDetailsFragment : BaseBindingFragment<FragmentTicketDetailsBinding, 
         tvDescription.setVisibleOrGone(!ticket.description.isNullOrBlank())
         ticket.description?.let { tvDescription.text = ticket.description }
         btnMarkAsDone.setVisibleOrGone(!ticket.isDone)
+        tvProgressLabel.setVisibleOrGone(ticket.ticketType == TicketType.PROGRESS_TRACKED_TASK)
+        tiLayoutProgress.setVisibleOrGone(ticket.ticketType == TicketType.PROGRESS_TRACKED_TASK)
+        ticket.progress?.let { etProgress.setText(it.toString()) }
+        etProgress.isEnabled = !ticket.isDone
+        btnMarkAsDone.isEnabled = ticket.ticketType == TicketType.TASK
     }
 
     private fun onTicketUpdated() = withBinding {

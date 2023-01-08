@@ -3,6 +3,7 @@ package com.bielik.progresstracker.feature.ticket_details
 import androidx.lifecycle.viewModelScope
 import com.bielik.progresstracker.base.BaseViewModel
 import com.bielik.progresstracker.database.dao.TicketsDao
+import com.bielik.progresstracker.model.common.TicketType
 import com.bielik.progresstracker.model.database.TicketModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -24,10 +25,13 @@ class TicketDetailsViewModel @Inject constructor(
         }
     }
 
-    fun onMarkAsDoneClick() {
+    fun onMarkAsDoneClick(progress: String) {
         viewModelScope.launch {
             val ticket = ticketFlow.replayCache.firstOrNull()
             ticket?.let {
+                if (it.ticketType == TicketType.PROGRESS_TRACKED_TASK) {
+                    it.progress = progress.toInt()
+                }
                 it.isDone = true
                 ticketsDao.updateTicket(it)
                 ticketUpdatedFlow.emit(Unit)
