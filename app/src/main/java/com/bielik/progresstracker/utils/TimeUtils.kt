@@ -1,30 +1,15 @@
 package com.bielik.progresstracker.utils
 
 import com.bielik.progresstracker.model.common.Day
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.time.ZoneId
+import java.time.ZonedDateTime
 import java.util.Calendar
 
-fun getTimeOfDayStart(time: Long): Long {
-    val calendar = Calendar.getInstance()
-    calendar.timeInMillis = time
-    calendar[Calendar.HOUR_OF_DAY] = 0
-    calendar[Calendar.MINUTE] = 0
-    calendar[Calendar.SECOND] = 0
-    calendar[Calendar.MILLISECOND] = 0
-    return calendar.timeInMillis
-}
-
-fun getTimeOfDayEnd(time: Long): Long {
-    val calendar = Calendar.getInstance()
-    calendar.timeInMillis = time
-    calendar[Calendar.HOUR_OF_DAY] = 23
-    calendar[Calendar.MINUTE] = 59
-    calendar[Calendar.SECOND] = 59
-    calendar[Calendar.MILLISECOND] = 999
-    return calendar.timeInMillis
-}
-
-fun getCalendarDataForTemplate(repeatOnList: List<Day>): List<Long> {
-    val data = mutableListOf<Long>()
+fun getCalendarDataForTemplate(repeatOnList: List<Day>): List<LocalDate> {
+    val data = mutableListOf<LocalDate>()
     for (i in 0..6) {
         val calendar = Calendar.getInstance().apply { add(Calendar.DAY_OF_MONTH, i) }
         var shouldRepeat = false
@@ -35,8 +20,12 @@ fun getCalendarDataForTemplate(repeatOnList: List<Day>): List<Long> {
             }
         }
         if (shouldRepeat) {
-            data.add(calendar.timeInMillis)
+            data.add(LocalDate.of(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH) + 1, calendar.get(Calendar.DAY_OF_MONTH)))
         }
     }
     return data
+}
+
+fun getDateTimeSeconds(localDate: LocalDate, localTime: LocalTime, zoneId: ZoneId): Long {
+    return ZonedDateTime.of(LocalDateTime.of(localDate, localTime), zoneId).toInstant().epochSecond
 }

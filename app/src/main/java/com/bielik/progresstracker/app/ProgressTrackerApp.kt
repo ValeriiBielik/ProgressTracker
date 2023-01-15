@@ -31,7 +31,7 @@ class ProgressTrackerApp : Application() {
         (getSystemService(ALARM_SERVICE) as? AlarmManager)?.setRepeating(
             AlarmManager.RTC_WAKEUP,
             calendar.timeInMillis,
-            AlarmManager.INTERVAL_FIFTEEN_MINUTES,
+            AlarmManager.INTERVAL_DAY,
             pendingIntent
         )
     }

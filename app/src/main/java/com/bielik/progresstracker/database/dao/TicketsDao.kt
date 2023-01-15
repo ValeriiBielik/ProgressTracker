@@ -20,6 +20,9 @@ interface TicketsDao {
     @Query("SELECT * FROM tickets")
     suspend fun getTickets(): List<TicketModel>
 
+    @Query("SELECT * FROM tickets WHERE timestamp BETWEEN :startDate AND :endDate")
+    suspend fun getTicketsForDay(startDate: Long, endDate: Long): List<TicketModel>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTicket(ticketModel: TicketModel)
 
