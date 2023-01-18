@@ -32,7 +32,7 @@ class HomeFragment : BaseBindingFragment<FragmentHomeBinding, HomeViewModel>() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.fetchTickets()
+        viewModel.navigateToToday()
     }
 
     private fun setupRecyclerView() = withBinding {

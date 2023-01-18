@@ -46,4 +46,11 @@ class HomeViewModel @Inject constructor(
         onDateSelectedEvent.emitViewModelScope(oldDate to newDate)
         fetchTickets()
     }
+
+    fun navigateToToday() {
+        val oldDate = selectedDate
+        selectedDate = LocalDate.now()
+        onDateSelectedEvent.emitViewModelScope(oldDate to selectedDate)
+        fetchTickets()
+    }
 }
