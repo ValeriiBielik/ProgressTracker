@@ -30,4 +30,8 @@
         <item name="android:textSize">@dimen/text_12</item>
         <item name="android:gravity">center</item>
     </style>
+
+    <style name="ThemeOverlay.App.BottomSheetDialog" parent="ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/ModalBottomSheetDialog</item>
+    </style>
 </resources>

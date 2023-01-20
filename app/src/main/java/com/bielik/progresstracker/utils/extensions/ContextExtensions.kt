@@ -3,7 +3,10 @@ package com.bielik.progresstracker.utils.extensions
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.util.TypedValue
 import androidx.annotation.ArrayRes
+import androidx.annotation.AttrRes
+import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.core.content.ContextCompat
@@ -25,3 +28,8 @@ fun Context.copyToClipboard(data: String) {
     val clip = ClipData.newPlainText("", data)
     clipboard?.setPrimaryClip(clip)
 }
+
+@ColorInt
+fun Context.getThemeColor(@AttrRes attrRes: Int): Int = TypedValue()
+    .apply { theme.resolveAttribute(attrRes, this, true) }
+    .data

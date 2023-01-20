@@ -42,10 +42,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_16"
         android:src="@drawable/ic_add"
+        app:backgroundTint="?colorPrimary"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/white"
+        app:tint="?colorOnPrimary"
         tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

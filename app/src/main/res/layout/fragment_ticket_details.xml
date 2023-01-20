@@ -18,6 +18,7 @@
         android:layout_marginHorizontal="@dimen/dimen_16"
         android:layout_marginTop="@dimen/dimen_16"
         android:text="@string/label_description"
+        android:textColor="?colorOnBackground"
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headerView"
@@ -31,6 +32,7 @@
         android:layout_marginTop="@dimen/dimen_8"
         android:background="@drawable/bg_rect_outlined"
         android:padding="@dimen/dimen_8"
+        android:textColor="?colorOnBackground"
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/tvDescriptionLabel"
         tools:visibility="visible" />
@@ -42,6 +44,7 @@
         android:layout_marginHorizontal="@dimen/dimen_16"
         android:layout_marginTop="@dimen/dimen_16"
         android:text="@string/progress_label"
+        android:textColor="?colorOnBackground"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@id/tiLayoutProgress"
         app:layout_constraintTop_toBottomOf="@id/tvDescription"
@@ -62,7 +65,8 @@
             android:id="@+id/etProgress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="number"
+            android:textColor="?colorOnBackground" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -75,7 +79,7 @@
         android:layout_marginBottom="@dimen/dimen_16"
         android:elevation="@dimen/dimen_4"
         android:text="@string/label_mark_as_done"
-        android:textColor="@color/white"
+        android:textColor="?colorOnPrimary"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

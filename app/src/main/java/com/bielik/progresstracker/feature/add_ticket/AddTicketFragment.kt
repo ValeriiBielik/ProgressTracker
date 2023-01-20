@@ -40,7 +40,7 @@ class AddTicketFragment : BaseBindingFragment<FragmentAddTicketBinding, AddTicke
             }
 
         }
-        clRepeat.onClick { viewModel.onRepeatOptionClick() }
+        optionViewRepeat.onClick { viewModel.onRepeatOptionClick() }
         optionViewType.onClick { viewModel.onOptionViewTypeClick() }
     }
 
@@ -75,17 +75,18 @@ class AddTicketFragment : BaseBindingFragment<FragmentAddTicketBinding, AddTicke
     }
 
     private fun onRepeatOptionSelected(repeatOption: RepeatOption) = withBinding {
-        tvRepeatOption.text = when (repeatOption) {
+        val text = when (repeatOption) {
             RepeatOption.ONCE -> getString(R.string.repeat_option_once)
             RepeatOption.EVERYDAY -> getString(R.string.repeat_option_everyday)
             RepeatOption.ON_WORK_DAYS -> getString(R.string.abbreviation_mon_fri)
             else -> throw IllegalStateException()
         }
+        optionViewRepeat.setValue(text)
     }
 
     private fun onDaysSelected(days: List<Day>) = withBinding {
         viewModel.onDaysSelected(days)
-        tvRepeatOption.text = getDaysAbbreviateString(requireContext(), days)
+        optionViewRepeat.setValue(getDaysAbbreviateString(requireContext(), days))
     }
 
     private fun onTicketTypeSelected(ticketType: TicketType) = withBinding {

@@ -68,50 +68,14 @@
                 app:optionTitle="@string/label_type"
                 app:optionValue="@string/ticket_type_task" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/clRepeat"
+            <com.bielik.progresstracker.view.OptionView
+                android:id="@+id/optionViewRepeat"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/dimen_60"
-                android:background="?attr/selectableItemBackground"
-                app:layout_constraintTop_toBottomOf="@id/optionViewType">
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/optionViewType"
+                app:optionTitle="@string/label_repeat"
+                app:optionValue="@string/repeat_option_once" />
 
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvRepeatLabel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/dimen_24"
-                    android:text="@string/label_repeat"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/text_16"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvRepeatOption"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/dimen_100"
-                    android:layout_marginEnd="@dimen/dimen_10"
-                    android:text="@string/repeat_option_once"
-                    android:textAlignment="textEnd"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@id/ivArrow"
-                    app:layout_constraintStart_toEndOf="@id/tvRepeatLabel"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/ivArrow"
-                    android:layout_width="@dimen/dimen_16"
-                    android:layout_height="@dimen/dimen_16"
-                    android:layout_marginEnd="@dimen/dimen_24"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_arrow" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>

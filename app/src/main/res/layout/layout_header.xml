@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back"
-        app:tint="@color/white"
+        app:tint="?colorOnPrimary"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_16"
         android:letterSpacing="0.04"
-        android:textColor="@color/white"
+        android:textColor="?colorOnPrimary"
         android:textSize="@dimen/text_16"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toStartOf="@id/tvMonth"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_check"
-        app:tint="@color/white"
+        app:tint="?colorOnPrimary"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/dimen_16"
         android:textAlignment="textEnd"
-        android:textColor="@color/white"
+        android:textColor="?colorOnPrimary"
         android:textSize="@dimen/text_16"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
