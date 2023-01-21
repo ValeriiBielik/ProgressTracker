@@ -30,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_confirm"
-        app:tint="@android:color/holo_blue_dark"
+        app:tint="?colorOnSurfaceVariant"
         tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

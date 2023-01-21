@@ -12,7 +12,8 @@
         <item name="colorSecondaryContainer">#00531a</item>
         <item name="colorOnSecondaryContainer">#a6f5a7</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:statusBarColor">?attr/colorSurfaceVariant</item>
+        <item name="android:windowLightStatusBar">false</item>
         <!-- Customize your theme here. -->
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
 
@@ -27,7 +28,7 @@
         <item name="colorOnSurface">#e6e1e6</item>
 
         <item name="colorOutline">#948f99</item>
-        <item name="colorSurfaceVariant">#e6e1e6</item>
+        <item name="colorSurfaceVariant">#49454F</item>
         <item name="colorOnSurfaceVariant">#cac4cf</item>
     </style>
 

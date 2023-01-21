@@ -5,7 +5,7 @@
     android:id="@+id/clHeader"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimen_60"
-    android:background="?colorPrimary"
+    android:background="?colorSurfaceVariant"
     app:layout_constraintTop_toTopOf="parent">
 
     <androidx.appcompat.widget.AppCompatImageButton
@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_back"
-        app:tint="?colorOnPrimary"
+        app:tint="?colorOnSurfaceVariant"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dimen_16"
         android:letterSpacing="0.04"
-        android:textColor="?colorOnPrimary"
+        android:textColor="?colorOnSurfaceVariant"
         android:textSize="@dimen/text_16"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -50,7 +50,7 @@
         app:layout_constraintEnd_toStartOf="@id/tvMonth"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_check"
-        app:tint="?colorOnPrimary"
+        app:tint="?colorOnSurfaceVariant"
         tools:visibility="visible" />
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/dimen_16"
         android:textAlignment="textEnd"
-        android:textColor="?colorOnPrimary"
+        android:textColor="?colorOnSurfaceVariant"
         android:textSize="@dimen/text_16"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
