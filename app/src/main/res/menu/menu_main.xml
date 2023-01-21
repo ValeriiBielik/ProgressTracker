@@ -9,7 +9,7 @@
     <item
         android:id="@+id/navigationProgress"
         android:icon="@drawable/ic_splash_icon"
-        android:title="@string/progress" />
+        android:title="@string/statistics" />
 
     <item
         android:id="@+id/navigationAlerts"

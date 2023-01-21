@@ -13,7 +13,7 @@
 
     <!--MainMenu-->
     <string name="home">Home</string>
-    <string name="progress">Progress</string>
+    <string name="statistics">Statistics</string>
     <string name="alerts">Alerts</string>
     <string name="profile">Profile</string>
     <!--/MainMenu-->
@@ -22,11 +22,13 @@
     <string name="fragment_on_boarding">FragmentOnBoarding</string>
     <string name="fragment_main_container">FragmentMainContainer</string>
     <string name="fragment_home">FragmentHome</string>
-    <string name="fragment_progress">FragmentProgress</string>
+    <string name="fragment_statistics">FragmentStatistics</string>
     <string name="fragment_alerts">FragmentAlerts</string>
     <string name="fragment_profile">FragmentProfile</string>
     <string name="fragment_add_ticket">FragmentAddTicket</string>
     <string name="fragment_ticket_details">FragmentTicketDetails</string>
+    <string name="fragment_persistence_task_list">FragmentPersistenceTaskList</string>
+    <string name="fragment_progress_task_list">FragmentProgressTaskList</string>
     <string name="dialog_select_repeat_option">DialogSelectRepeatOption</string>
     <string name="dialog_select_days">DialogSelectDays</string>
     <string name="dialog_select_ticket_type">DialogSelectTicketType</string>
@@ -35,6 +37,11 @@
     <!-- HomeFragment -->
     <string name="format_user_greeting">Hi, %s</string>
     <!-- /HomeFragment -->
+
+    <!-- StatisticsFragment -->
+    <string name="label_persistence">Persistence</string>
+    <string name="label_progress">Progress</string>
+    <!-- /StatisticsFragment -->
 
     <!-- FragmentAddTicket -->
     <string name="label_create_ticket">Create New Ticket</string>
