@@ -11,10 +11,11 @@
         <item name="colorOnSecondary">#003910</item>
         <item name="colorSecondaryContainer">#00531a</item>
         <item name="colorOnSecondaryContainer">#a6f5a7</item>
-        <!-- Status bar color. -->
+
         <item name="android:statusBarColor">?attr/colorSurfaceVariant</item>
         <item name="android:windowLightStatusBar">false</item>
-        <!-- Customize your theme here. -->
+        <item name="android:navigationBarColor">?attr/colorSurfaceVariant</item>
+
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.App.BottomSheetDialog</item>
 
         <item name="colorError">#ffb4ab</item>
